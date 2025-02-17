@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASPCrashCourse.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250217103119_initialsetup")]
+    [Migration("20250217113433_initialsetup")]
     partial class initialsetup
     {
         /// <inheritdoc />
@@ -33,11 +33,13 @@ namespace ASPCrashCourse.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("JokeAnswer")
-                        .HasColumnType("int");
+                    b.Property<string>("JokeAnswer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("JokeQuestion")
-                        .HasColumnType("int");
+                    b.Property<string>("JokeQuestion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

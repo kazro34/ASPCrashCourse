@@ -30,11 +30,13 @@ namespace ASPCrashCourse.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("JokeAnswer")
-                        .HasColumnType("int");
+                    b.Property<string>("JokeAnswer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("JokeQuestion")
-                        .HasColumnType("int");
+                    b.Property<string>("JokeQuestion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
